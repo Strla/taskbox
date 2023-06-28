@@ -274,7 +274,7 @@ textarea {
   flex-wrap: wrap;
   height: 3rem;
   width: 100%;
-  background: white;
+  background: yellow;
   transition: all ease-out 150ms;
 }
 
