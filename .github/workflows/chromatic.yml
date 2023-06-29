@@ -10,7 +10,7 @@ on:
 
 # List of jobs
 jobs:
-  test:
+  chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
@@ -22,6 +22,5 @@ jobs:
       - run: yarn
 
         #👇 Adds Chromatic as a step in the workflow
-        # dasdasdasdasdasd
      - name: Publish to Chromatic
         run: yarn chromatic --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes
