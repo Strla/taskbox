@@ -22,5 +22,6 @@ jobs:
       - run: yarn
 
         #👇 Adds Chromatic as a step in the workflow
+        # dasdasdasdasdasd
      - name: Publish to Chromatic
         run: yarn chromatic --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes
