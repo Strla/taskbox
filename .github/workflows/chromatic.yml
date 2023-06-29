@@ -1,19 +1,14 @@
-# Workflow name
 name: 'Chromatic Deployment'
 
-# Event for the workflow
 on:
   push:
     branches: [“main”]
   pull_request:
     branches: [“main”]
 
-# List of jobs
 jobs:
   chromatic-deployment:
-    # Operating System
     runs-on: ubuntu-latest
-    # Job steps
     steps:
       - uses: actions/checkout@v3
         with:
@@ -21,6 +16,5 @@ jobs:
 
       - run: yarn
 
-        #👇 Adds Chromatic as a step in the workflow
      - name: Publish to Chromatic
         run: yarn chromatic --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes
