@@ -1,12 +1,12 @@
-# Workflow name
-name: 'Chromatic Deployment'
+# .github/workflows/chromatic.yml
 
-# Event for the workflow
+name: 'Chromatic'
+
 on:
   push:
-    branches: [“main”]
+    branches: ['main']
   pull_request:
-    branches: [“main”]
+    branches: ['main']
 
 # List of jobs
 jobs:
@@ -15,12 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: yarn
 
-      - run: yarn
-
-        #👇 Adds Chromatic as a step in the workflow
-     - name: Publish to Chromatic
-        run: yarn chromatic --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes
+      - name: Publish to Chromatic
+        run: yarn chromatic --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
